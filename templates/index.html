@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+ <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="icon" href="{{ url_for('static',filename='icone.png')}}" type="image/icon type">
+         <title>Sentiment Analysis using maching learning</title>
+         <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+     </head>
+     <body>
+         <br>
+         <div id=mainPage>
+             <h1>Sentiment Analysis</h1>
+             <div id="form">
+                <form action="{{ url_for('example')}}" method="GET">
+                    <input type="submit" value="Generate Random Review">
+                </form>
+                <form action="{{ url_for('predict')}}" method="POST">
+                    <div id="features">
+                        <div class="double">
+                        <textarea id="news_text" placeholder="Enter the review" name="news_text" cols="132" rows="10" required>{{news_text}}</textarea>
+                        </div>
+                    </div>
+                    <div id="button">
+                        <input type="submit" value="Prediction">
+                    </div>
+                </form>
+             </div>
+             <br>
+             <style>
+                p {
+                    color: {{p_color}}
+                }
+            </style>
+             <p> {{ prediction }}</p>
+             <br>
+             <h4>{{clean_text_label}}</h4>
+             <br>
+             <h5>{{clean_text}}</h5>
+         </div>
+         <footer>&copy;&nbsp;GD - ML / DV Project</footer>
+     </body>
+ </html>
